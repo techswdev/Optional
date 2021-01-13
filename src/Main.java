@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Person han = new Person("han", "han@naver.com");
+        Person han = new Person("han", null);
         System.out.println("han.getEmail() = " + han.getEmail().toLowerCase());
     }
 }
