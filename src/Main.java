@@ -4,9 +4,13 @@ public class Main {
 
     public static void main(String[] args) {
         Person han = new Person("han", "han@naver.com");
-        System.out.println("han.getEmail() = " + han.getEmail()
-                                                        .map(String::toLowerCase)
-                                                        .orElse("Email is not provided"));
+
+        if(han.getEmail().isPresent()){
+            String email = han.getEmail().get();
+            System.out.println(email.toLowerCase());
+        } else{
+            System.out.println("email is not provided");
+        }
     }
 }
      class Person{
