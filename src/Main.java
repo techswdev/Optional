@@ -1,8 +1,12 @@
+import java.util.Optional;
+
 public class Main {
 
     public static void main(String[] args) {
         Person han = new Person("han", null);
-        System.out.println("han.getEmail() = " + han.getEmail().toLowerCase());
+        System.out.println("han.getEmail() = " + han.getEmail()
+                                                        .map(String::toLowerCase)
+                                                        .orElse("Email is not provided"));
     }
 }
      class Person{
@@ -18,8 +22,8 @@ public class Main {
             return name;
         }
 
-        public String getEmail() {
-            return email;
+        public Optional<String> getEmail() {
+            return Optional.ofNullable(email);
         }
     }
 
