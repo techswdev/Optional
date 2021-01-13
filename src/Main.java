@@ -3,31 +3,21 @@ import java.util.Optional;
 public class Main {
 
     public static void main(String[] args) {
-        Person han = new Person("han", "han@naver.com");
+     Optional<String> opt1 = Optional.ofNullable("nullable");
 
-        if(han.getEmail().isPresent()){
-            String email = han.getEmail().get();
-            System.out.println(email.toLowerCase());
-        } else{
-            System.out.println("email is not provided");
+     if(opt1.isPresent()){
+         System.out.println("opt1.get() :"+opt1.get());
+     }else{
+         System.out.println("opt1.get() : null");
+     }
+
+        Optional<String> opt2 = Optional.ofNullable(null);
+
+        if(opt2.isPresent()){
+            System.out.println("opt2.get() :"+opt2.get());
+        }else {
+            System.out.println("opt2.get() : null");
         }
     }
 }
-     class Person{
-        private final String name;
-        private final String email;
-
-        Person(String name, String email) {
-            this.name = name;
-            this.email = email;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Optional<String> getEmail() {
-            return Optional.ofNullable(email);
-        }
-    }
 
